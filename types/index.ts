@@ -1,5 +1,18 @@
 export type { ApiError, ApiResponse, PaginatedResponse } from "@/types/api";
 export type {
+  BlogAdjacentPosts,
+  BlogAuthor,
+  BlogCategory,
+  BlogFaqItem,
+  BlogFrontmatter,
+  BlogHeading,
+  BlogPaginationResult,
+  BlogPost,
+  BlogPostMeta,
+  BlogSearchOptions,
+  BlogTag,
+} from "@/types/blog";
+export type {
   DownloadMediaItem,
   DownloadMediaType,
   DownloadResultData,

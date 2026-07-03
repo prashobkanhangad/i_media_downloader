@@ -65,10 +65,7 @@ export function useInstagramDownload() {
 
       setDownloading(true);
       try {
-        await triggerFileDownload(
-          url,
-          buildDownloadFilename(data, item),
-        );
+        await triggerFileDownload(url, buildDownloadFilename(data, item));
         if (lastUrl) {
           await trackDownload(lastUrl, data?.mediaType ?? null);
         }

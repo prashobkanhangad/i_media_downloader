@@ -4,10 +4,7 @@ import { usePathname } from "next/navigation";
 
 import { useMounted } from "@/hooks/use-mounted";
 import { isPublicAdsRoute } from "@/lib/ads/config";
-import {
-  shouldLoadAdSense,
-  shouldShowAdPlacements,
-} from "@/lib/ads/preview";
+import { shouldLoadAdSense, shouldShowAdPlacements } from "@/lib/ads/preview";
 
 export function useShowAdPlacements() {
   const mounted = useMounted();

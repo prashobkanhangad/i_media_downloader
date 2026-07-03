@@ -139,28 +139,41 @@ export function getBlogJsonLd() {
   };
 }
 
-export function getBlogPostingJsonLd(post: {
-  title: string;
-  description: string;
-  slug: string;
-  datePublished: string;
-}) {
-  const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+import type { BlogPostMeta } from "@/types/blog";
+import { getSiteUrl } from "@/lib/seo/site-config";
+
+export function getBlogPostingJsonLd(post: BlogPostMeta) {
+  const siteUrl = getSiteUrl();
 
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    datePublished: post.datePublished,
+    datePublished: post.date,
+    dateModified: post.updated ?? post.date,
     url: `${siteUrl}/blog/${post.slug}`,
+    image: post.image ? getSiteUrl(post.image) : `${siteUrl}/opengraph-image`,
     author: {
-      "@type": "Organization",
-      name: "Instagram Video Downloader",
+      "@type": "Person",
+      name: post.author.name,
+      url: post.author.website,
     },
     publisher: {
       "@type": "Organization",
       name: "Instagram Video Downloader",
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/opengraph-image`,
+      },
+    },
+    articleSection: post.category,
+    keywords: post.tags.join(", "),
+    wordCount: post.wordCount,
+    timeRequired: `PT${post.readingMinutes}M`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/blog/${post.slug}`,
     },
   };
 }

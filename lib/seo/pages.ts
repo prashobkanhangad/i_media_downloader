@@ -1,5 +1,14 @@
 export type SeoPageKey =
-  "home" | "reels" | "videos" | "photos" | "stories" | "faq" | "blog";
+  | "home"
+  | "reels"
+  | "videos"
+  | "photos"
+  | "stories"
+  | "faq"
+  | "blog"
+  | "privacy"
+  | "terms"
+  | "dmca";
 
 export interface SeoPageConfig {
   key: SeoPageKey;
@@ -116,6 +125,40 @@ export const seoPages: Record<SeoPageKey, SeoPageConfig> = {
     ],
     changeFrequency: "weekly",
     priority: 0.75,
+  },
+  privacy: {
+    key: "privacy",
+    path: "/privacy",
+    title: "Privacy Policy",
+    description:
+      "Learn how we collect, use, and protect your information when you use our Instagram downloader service.",
+    keywords: [
+      "privacy policy",
+      "data protection",
+      "instagram downloader privacy",
+    ],
+    changeFrequency: "yearly",
+    priority: 0.5,
+  },
+  terms: {
+    key: "terms",
+    path: "/terms",
+    title: "Terms of Service",
+    description:
+      "Terms and conditions for using our Instagram downloader, including acceptable use and limitations of liability.",
+    keywords: ["terms of service", "terms and conditions", "user agreement"],
+    changeFrequency: "yearly",
+    priority: 0.5,
+  },
+  dmca: {
+    key: "dmca",
+    path: "/dmca",
+    title: "DMCA Policy",
+    description:
+      "Copyright and DMCA takedown information for rights holders reporting infringing content.",
+    keywords: ["dmca", "copyright policy", "takedown notice"],
+    changeFrequency: "yearly",
+    priority: 0.5,
   },
 };
 
