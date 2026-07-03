@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { GoogleAdSenseScript, PublicAdsShell } from "@/components/ads";
+import { GoogleAdSenseScript, PublicAdsShell, Quge5AdScript } from "@/components/ads";
 import { GlobalJsonLd } from "@/components/seo/global-json-ld";
 import { AppProviders } from "@/lib/providers";
 import { createRootMetadata, viewport } from "@/lib/seo/metadata";
@@ -36,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <Quge5AdScript />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
       </head>

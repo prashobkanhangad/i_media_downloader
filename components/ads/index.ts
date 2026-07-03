@@ -4,5 +4,6 @@ export { AdPlaceholder } from "@/components/ads/ad-placeholder";
 export { AdSidebar } from "@/components/ads/ad-sidebar";
 export { AdUnit } from "@/components/ads/ad-unit";
 export { GoogleAdSenseScript } from "@/components/ads/google-adsense-script";
+export { Quge5AdScript } from "@/components/ads/quge5-ad-script";
 export { HomePageAdLayout } from "@/components/ads/home-page-ad-layout";
 export { PublicAdsShell } from "@/components/ads/public-ads-shell";
