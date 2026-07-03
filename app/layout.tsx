@@ -2,7 +2,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { GoogleAdSenseScript, PublicAdsShell, Quge5AdScript } from "@/components/ads";
+import {
+  GoogleAdSenseScript,
+  PublicAdsShell,
+  Quge5AdScript,
+} from "@/components/ads";
 import { GlobalJsonLd } from "@/components/seo/global-json-ld";
 import { AppProviders } from "@/lib/providers";
 import { createRootMetadata, viewport } from "@/lib/seo/metadata";
