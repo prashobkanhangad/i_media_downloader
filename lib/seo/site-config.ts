@@ -1,9 +1,40 @@
+function normalizeBaseUrl(url: string): string {
+  return url.replace(/\/$/, "");
+}
+
+function resolveSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_APP_URL?.trim();
+  if (explicit) {
+    return normalizeBaseUrl(explicit);
+  }
+
+  const vercelProduction = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (vercelProduction) {
+    const host = vercelProduction.replace(/^https?:\/\//, "");
+    return normalizeBaseUrl(`https://${host}`);
+  }
+
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) {
+    const host = vercelUrl.replace(/^https?:\/\//, "");
+    return normalizeBaseUrl(`https://${host}`);
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    console.warn(
+      "[seo] NEXT_PUBLIC_APP_URL is not set. Sitemap and canonical URLs may be invalid. Set it to your production domain (e.g. https://example.com).",
+    );
+  }
+
+  return "http://localhost:3000";
+}
+
 export const siteConfig = {
   name: "Instagram Video Downloader",
   shortName: "IG Downloader",
   description:
     "Download Instagram videos, reels, photos, and stories in HD quality. Free, fast, and no login required.",
-  url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
+  url: resolveSiteUrl(),
   locale: "en_US",
   language: "en",
   twitterHandle: "@igdownloader",
